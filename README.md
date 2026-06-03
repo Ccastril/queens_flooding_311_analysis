@@ -4,6 +4,15 @@ A Python ETL and analysis project using NYC Open Data 311 service request record
 
 This project extracts public 311 complaint data, filters for Queens flooding-related records, cleans and validates the data, creates aggregate summary tables, generates charts, and writes a short findings report.
 
+## Technical Highlights
+
+- Built a reproducible Python ETL pipeline that extracts public 311 data from NYC Open Data.
+- Separated API query logic into a reusable SQL/SoQL file.
+- Cleaned and normalized messy administrative records using pandas.
+- Added validation flags for missing locations, invalid dates, duplicate records, and questionable coordinates.
+- Generated aggregate outputs by ZIP code, month, and complaint descriptor.
+- Produced charts and a written summary report to communicate findings and limitations.
+
 ## Project Question
 
 Where and when are flooding-related 311 complaints concentrated in Queens, and what data quality limitations should analysts consider when using 311 complaint data?
