@@ -20,18 +20,18 @@ The project follows a reproducible ETL and analysis workflow:
 
 ## Key Findings
 
-- The cleaned dataset contains 50,000 flooding-related 311 records for Queens.
-- The ZIP code with the highest complaint count is 11385, with 1,916 complaints.
-- The month with the highest complaint count is 2021-09, with 4,292 complaints.
-- The most common complaint descriptor is "Sewer Backup (Use Comments) (SA)", with 17,206 complaints.
+- The cleaned dataset contains 1,000 flooding-related 311 records for Queens.
+- The ZIP code with the highest complaint count is 11434, with 50 complaints.
+- The month with the highest complaint count is 2023-12, with 395 complaints.
+- The most common complaint descriptor is "Trees and Sidewalks Program", with 312 complaints.
 
 ## Data Quality Notes
 
 The validation process identified:
 
-- 393 records with missing latitude or longitude.
-- 236 records with missing ZIP codes.
-- 67 records where the closed date appears earlier than the created date.
+- 9 records with missing latitude or longitude.
+- 2 records with missing ZIP codes.
+- 0 records where the closed date appears earlier than the created date.
 
 These records were preserved in the cleaned dataset and flagged so analysts can decide whether to include or exclude them depending on the analysis.
 
