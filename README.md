@@ -1,6 +1,6 @@
 # Queens Flooding 311 Analysis
 
-A small Python ETL and analysis project using NYC Open Data 311 service request records to examine flooding-related complaints in Queens, New York.
+A Python ETL and analysis project using NYC Open Data 311 service request records to examine flooding-related complaints in Queens, New York.
 
 This project extracts public 311 complaint data, filters for Queens flooding-related records, cleans and validates the data, creates aggregate summary tables, generates charts, and writes a short findings report.
 
@@ -10,7 +10,9 @@ Where and when are flooding-related 311 complaints concentrated in Queens, and w
 
 ## Motivation
 
-Flooding affects quality of life, infrastructure, transportation, housing, and public safety. Public complaint data can help identify patterns in reported flooding issues, but 311 records are administrative reports rather than direct measurements of flood severity. This project explores how such data can be cleaned, summarized, and interpreted responsibly.
+Flooding affects quality of life, infrastructure, transportation, housing, and public safety. Public complaint data can help identify patterns in reported flooding issues, but 311 records are administrative reports rather than direct measurements of flood severity.
+
+This project explores how public administrative data can be cleaned, summarized, and interpreted responsibly.
 
 ## Data Source
 
@@ -43,7 +45,7 @@ The project follows a reproducible ETL and analysis workflow:
 ## Repository Structure
 
 ```text
-queens-flooding-311-analysis/
+queens_flooding_311_analysis/
   README.md
   requirements.txt
   .gitignore
@@ -62,20 +64,22 @@ queens-flooding-311-analysis/
 
   data/
     raw/
-      queens_flooding_raw.csv
+      .gitkeep
     processed/
-      queens_flooding_cleaned.csv
-      queens_flooding_validation_summary.csv
-      queens_flooding_by_zip.csv
-      queens_flooding_by_month.csv
-      queens_flooding_by_descriptor.csv
+      .gitkeep
 
   outputs/
     charts/
-      complaints_by_zip.png
-      complaints_by_month.png
-      complaints_by_descriptor.png
-    summary.md
+      .gitkeep
+```
+
+After the pipeline runs, generated files are written to:
+
+```text
+data/raw/
+data/processed/
+outputs/charts/
+outputs/summary.md
 ```
 
 ## Outputs
@@ -89,7 +93,24 @@ The pipeline produces:
 * charts showing complaint patterns;
 * a written summary report.
 
+Expected generated files include:
+
+```text
+data/raw/queens_flooding_raw.csv
+data/processed/queens_flooding_cleaned.csv
+data/processed/queens_flooding_validation_summary.csv
+data/processed/queens_flooding_by_zip.csv
+data/processed/queens_flooding_by_month.csv
+data/processed/queens_flooding_by_descriptor.csv
+outputs/charts/complaints_by_zip.png
+outputs/charts/complaints_by_month.png
+outputs/charts/complaints_by_descriptor.png
+outputs/summary.md
+```
+
 ## Charts
+
+After running the pipeline, the generated charts will appear in `outputs/charts/`.
 
 ### Top Queens ZIP Codes by Flooding-Related 311 Complaints
 
@@ -117,7 +138,7 @@ The cleaning process creates flags for:
 * records usable for location-based analysis;
 * records usable for time-based analysis.
 
-These records are preserved rather than automatically removed so that analysts can decide how to handle them depending on the research question.
+These records are preserved rather than automatically removed so that an analyst can decide how to handle them depending on the research question.
 
 ## Limitations
 
@@ -138,8 +159,8 @@ This project should therefore be interpreted as an analysis of reported flooding
 Create and activate a virtual environment:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 Install dependencies:
@@ -154,11 +175,7 @@ Run the pipeline from the project root:
 python src/main.py
 ```
 
-Or, if running from inside the `src` folder:
-
-```bash
-python main.py
-```
+The pipeline will extract data from NYC Open Data, clean and validate the records, create aggregate outputs, generate charts, and write `outputs/summary.md`.
 
 ## Main Dependencies
 
